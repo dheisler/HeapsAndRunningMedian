@@ -1,11 +1,12 @@
-/*
+/**
+ * Author: Debbie Heisler
+ * Date: June 2018
+ *
  * These tests were not written by TDD since I am coding from an algorithm.
- * They were written immediately after each addition.
+ * They were written immediately after each addition.  Ok, that is not 100% true.
  */
 package dheisler.util;
 
-import dheisler.util.MyHeap;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,32 +16,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MyHeapTest
 {
-    private static Comparator<Integer> maxComp;
-    private static Comparator<Integer> minComp;
+    private static Comparator<Integer> maxComp = Comparator.naturalOrder();
+    private static Comparator<Integer> minComp = Comparator.reverseOrder();
     private MyHeap<Integer> minHeap;
     private MyHeap<Integer> maxHeap;
-
-    @BeforeAll
-    public static void defineComparators()
-    {
-        maxComp = new Comparator<Integer>()
-        {
-            @Override
-            public int compare(Integer o1, Integer o2)
-            {
-                return o1.compareTo(o2);
-            }
-        };
-
-        minComp = new Comparator<Integer>()
-        {
-            @Override
-            public int compare(Integer o1, Integer o2)
-            {
-                return o2.compareTo(o1);
-            }
-        };
-    }
 
     @BeforeEach
     public void defineHeaps()
