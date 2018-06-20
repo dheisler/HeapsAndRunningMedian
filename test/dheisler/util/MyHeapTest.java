@@ -76,4 +76,20 @@ public class MyHeapTest
         assertEquals(Integer.valueOf(1), minHeap.peek());
     }
 
+    @Test
+    public void testAddingTwoIncreasingElementsMax()
+    {
+        maxHeap.insert(new Integer(1));
+        maxHeap.insert(new Integer(2));
+        assertEquals(Integer.valueOf(2), maxHeap.peek());
+    }
+
+    @Test
+    public void testAddingTwoIncreasingElementsMin()
+    {
+        minHeap.insert(new Integer(1));
+        minHeap.insert(new Integer(2));
+        assertEquals(Integer.valueOf(1), minHeap.peek());
+    }
+
 }
