@@ -1,10 +1,15 @@
 /**
+ * Author: Debbie Heisler
+ * Date: June 2018
+ *
  * This implementation of a heap is based on the algorithms for Heapsort in
  * Introduction to Algorithms by Cormen, Leiserson, Rivest
  *
  * It was slightly modified so that it it could handle a 0 based array instead
  * of a 1 based array.
+ *
  */
+
 
 package dheisler.util;
 
@@ -33,7 +38,7 @@ public class MyHeap<T>
         int index = size() - 1;
 
         while (hasParent(index) &&
-                myComparator.compare(myArray.get(index), myArray.get(getParentIndex(index))) > 0)
+                myComparator.compare(myArray.get(index), parent(index)) > 0)
         {
             swap(index, getParentIndex(index));
             index = getParentIndex(index);
@@ -84,44 +89,44 @@ public class MyHeap<T>
         return (2 * index) + 2;
     }
 
-    protected T parent(int index)
+    private T parent(int index)
     {
         return myArray.get(getParentIndex(index));
     }
 
-    protected T leftChild(int index)
+    private T leftChild(int index)
     {
         return myArray.get(getLeftChildIndex(index));
     }
 
-    protected T rightChild(int index)
+    private T rightChild(int index)
     {
         return myArray.get(getRightChildIndex(index));
     }
 
-    protected boolean hasParent(int index)
+    private boolean hasParent(int index)
     {
         return getParentIndex(index) >= 0;
     }
 
-    protected boolean hasLeftChild(int index)
+    private boolean hasLeftChild(int index)
     {
         return getLeftChildIndex(index) < size();
     }
 
-    protected boolean hasRightChile(int index)
+    private boolean hasRightChile(int index)
     {
         return getRightChildIndex(index) < size();
     }
 
-    protected void swap(int firstIndex, int secondIndex)
+    private void swap(int firstIndex, int secondIndex)
     {
         T temp = myArray.get(firstIndex);
         myArray.set(firstIndex, myArray.get(secondIndex));
         myArray.set(secondIndex, temp);
     }
 
-    protected void putLastItemFirst()
+    private void putLastItemFirst()
     {
         if (size() > 1)
         {
