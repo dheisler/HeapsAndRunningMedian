@@ -71,4 +71,34 @@ public class MyHeapTest
         assertEquals(Integer.valueOf(1), minHeap.peek());
     }
 
+    @Test
+    public void testIndirectlyThelastItemIsPutFirst()
+    {
+        maxHeap.insert(new Integer(10));
+        maxHeap.insert(new Integer(5));
+        assertEquals(Integer.valueOf(10), maxHeap.extract());
+        assertEquals(Integer.valueOf(5), maxHeap.peek());
+    }
+
+    @Test
+    public void testCorrectNewMaxNodeWhenExtractOne()
+    {
+        maxHeap.insert(new Integer(10));
+        maxHeap.insert(new Integer(5));
+        maxHeap.insert(new Integer(1));
+        maxHeap.extract();
+        assertEquals(Integer.valueOf(5), maxHeap.peek());
+    }
+
+    @Test
+    public void testCorrectNewMinWhenExtractOne()
+    {
+        minHeap.insert(new Integer(5));
+        minHeap.insert(new Integer(10));
+        minHeap.insert(new Integer(1));
+        minHeap.insert(new Integer(2));
+        minHeap.insert(new Integer(20));
+        assertEquals(Integer.valueOf(1), maxHeap.extract());
+        assertEquals(Integer.valueOf(2), maxHeap.peek());
+    }
 }

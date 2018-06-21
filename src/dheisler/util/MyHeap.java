@@ -60,14 +60,32 @@ public class MyHeap<T>
 
         T element = myArray.get(0);
         putLastItemFirst();
-        // heapify
+        heapify(0);
 
         return element;
     }
 
-    private void heapify()
+    private void heapify(int index)
     {
+        int indexOfLargestItem = index;
 
+        if (getLeftChildIndex(index) < size() &&
+                myComparator.compare(leftChild(index), myArray.get(index)) > 0)
+        {
+            indexOfLargestItem = getLeftChildIndex(index);
+        }
+
+        if (getRightChildIndex(index) < size() &&
+                myComparator.compare(rightChild(index), myArray.get(indexOfLargestItem)) > 0)
+        {
+            indexOfLargestItem = getRightChildIndex(index);
+        }
+
+        if (indexOfLargestItem != index)
+        {
+            swap(index, indexOfLargestItem);
+            heapify(indexOfLargestItem);
+        }
     }
 
     /*
