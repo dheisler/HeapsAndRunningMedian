@@ -98,7 +98,7 @@ public class MyHeapTest
         minHeap.insert(new Integer(1));
         minHeap.insert(new Integer(2));
         minHeap.insert(new Integer(20));
-        assertEquals(Integer.valueOf(1), maxHeap.extract());
-        assertEquals(Integer.valueOf(2), maxHeap.peek());
+        assertEquals(Integer.valueOf(1), minHeap.extract());
+        assertEquals(Integer.valueOf(2), minHeap.peek());
     }
 }

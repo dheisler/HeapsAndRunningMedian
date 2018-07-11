@@ -90,7 +90,7 @@ public class MyHeap<T>
 
     /*
      * Normally, I would make these all private, but in order to test them,
-     * I have to make them protected.
+     * I make them protected.
      */
     protected int getParentIndex(int index)
     {
